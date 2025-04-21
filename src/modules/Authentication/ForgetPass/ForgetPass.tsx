@@ -7,14 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { axiosPublicInstance } from "../../../services/api/apiInstance";
 
 import { toast } from "react-toastify";
-import { useContext, useState } from "react";
-import { AuthContext } from "../../../context/AuthContext";
+
 
 import { USERS_URLS } from "../../../services/api/apiConfig";
-import { forgetData, LoginFormInputs } from "../../Shared/interfaces/AuthInterface";
+import { forgetData } from "../../Shared/interfaces/AuthInterface";
 import { AxiosError } from "axios";
-import { Email_Validation, Password_Validation } from "../../../services/Validation";
-import useTogglePassword from "../../../hooks/useTogglePassword";
+import { Email_Validation } from "../../../services/Validation";
+
 
 export default function ForgetPass() {
  

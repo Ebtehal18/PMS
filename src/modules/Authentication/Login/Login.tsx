@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { axiosPublicInstance } from "../../../services/api/apiInstance";
 
 import { toast } from "react-toastify";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 
 import { USERS_URLS } from "../../../services/api/apiConfig";
