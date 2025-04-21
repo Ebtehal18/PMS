@@ -22,21 +22,19 @@ export default function ProjectList() {
   // const inputRef=useRef<HTMLInputElement>(null)
 
   const [currentPage,setCurrentPage]=useState(1)
-  const [searchValue, setSearchValue] = useState(''); // Keeps track of the input value
 
 
   const [totalPages,setTotalPages]=useState<number[]>([])
   const [totalrecords,setTotalRecords]=useState(0)
   const [loading,setLoading]=useState(false)
-  const [loadingUser,setLoadingUser]=useState(false)
-  const [loadingToggleUser,setLoadingToggleUser]=useState(false)
+ 
   const [selectedProject,setSelectedProject]=useState<number|null>(null)
-  const[grop,setGrop]=useState<null|number>(null)
+  // const[grop,setGrop]=useState<null|number>(null)
 
   // const [selectedUser,setSelectedUser]=useState<null|number>(null)
-  const [user,setUser]=useState(null)
+  // const [user,setUser]=useState(null)
   const [show, setShow] = useState(false);
-  const handleClose = ():void => setShow(false);
+  // const handleClose = ():void => setShow(false);
   const handleShow = (id:number):void =>{
     // getUser(id)
     setShow(true)
@@ -156,7 +154,7 @@ return <>
           <td className="align-middle text-center">{project.task.length}</td>
           <td className="align-middle text-center">{project.description}</td>
           <td className="align-middle text-center">{FormateDate(project.creationDate)}</td>
-          <td className="text-center align-middle"> <Actions handleShow={handleShow} handleProjectDelete={handleShowDelete} projectId={project.id}/></td>
+          <td className="text-center align-middle"> <Actions  handleShow={handleShow} handleProjectDelete={handleShowDelete} projectId={project.id}/></td>
         </tr>)
 :<td colSpan={6} className="text-center"><NoData/></td>
 }

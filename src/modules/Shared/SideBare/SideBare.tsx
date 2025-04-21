@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import userIcons from '../../../assets/people-icon.png';
 import homeIcon from '../../../assets/home-icon.png';
@@ -10,7 +10,7 @@ import projectsIcon from '../../../assets/projects-icon.png';
 import { AuthContext } from "../../../context/AuthContext";
 
 export default function SideBare() {
-  const navigate = useNavigate();
+ 
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const toggleCollapse = () => {
