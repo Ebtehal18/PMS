@@ -1,11 +1,11 @@
-import { Link, useParams } from "react-router-dom";
+
 import { axiosPrivateInstance } from "../../../services/api/apiInstance";
 import { useEffect, useState } from "react";
 import { TASKS_URLS } from "../../../services/api/apiConfig";
 import { ITaskData } from "../../Shared/interfaces/TaskInterface";
 import NoData from "../../Shared/NoData/NoData";
 import Loading from "../../Shared/Loading/Loading";
-import { Accordion, Col, Dropdown, Form, InputGroup, Row, Table } from "react-bootstrap";
+import { Accordion, Col,  Form, InputGroup, Row, Table } from "react-bootstrap";
 import { FormateDate } from "../../../helpers/formateDate";
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";

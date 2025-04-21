@@ -122,7 +122,7 @@ return newTasks
     e.dataTransfer.setData('taskId', task.id.toString());
     e.dataTransfer.setData('prevState', task.status);
   }}
-    onDragEnd={(e)=>console.log('end')}
+    // onDragEnd={(e)=>console.log('end')}
 
 >{task.title}</motion.div>)
   }

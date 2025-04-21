@@ -1,20 +1,19 @@
 // import React from "react";
-import  { useContext, useEffect, useRef, useState } from "react";
+import  {  useEffect,  useState } from "react";
 import { axiosPrivateInstance } from "../../services/api/apiInstance";
 import { USERS_URLS } from "../../services/api/apiConfig";
 import Table from 'react-bootstrap/Table';
 import { IUsers } from "../Shared/interfaces/UserInterface";
 import { FormateDate } from "../../helpers/formateDate";
-import { Dropdown, InputGroup,Form, Row, Col, Pagination, Container, Accordion } from "react-bootstrap";
+import {  InputGroup,Form,  Accordion } from "react-bootstrap";
 import ViewDetails from "../Shared/ViewDetails/ViewDetails";
-import DelationComfiramtion from "../Shared/DelationComfiramtion/DelationComfiramtion";
 import { toast } from "react-toastify";
 import Loading from "../Shared/Loading/Loading";
 import PaginationPage from "../Shared/Pagination/Pagination";
 import NoData from "../Shared/NoData/NoData";
 import { AxiosError } from "axios";
 import Actions from "../Shared/Actions/Actions";
-import { ProjectAndUserContext } from "../../context/ProjectAndUserContext";
+
 import Header from "../Shared/Header/Header";
 import ActivateAndDeactivate from "../Shared/ActivateAndDeactivate/ActivateAndDeactivate";
 // import { Dropdown } from "react-bootstrap";
@@ -262,7 +261,8 @@ console.log(value)
 
 {users.length>0? <PaginationPage currentPage={currentPage} setCurrentPage={setCurrentPage} getFun={getAllUsersList} totalPages={totalPages} totalrecords={totalrecords}/>
 :""}
-  <ViewDetails show={show} handleClose={handleClose} user={user} loading={loadingUser}/>
+{user&&  <ViewDetails show={show} handleClose={handleClose} user={user} loading={loadingUser}/>
+}
   <ActivateAndDeactivate isActivated={selectedUser?.isActivated??false}    show={showDelation} handleClose={handleCloseDelete}  deleteFun={toggleUser} loading={loadingToggleUser} />
   </>
 

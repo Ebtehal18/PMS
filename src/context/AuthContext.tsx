@@ -3,7 +3,7 @@ import  { createContext,  ReactNode,  useEffect, useState } from "react";
 import { axiosPrivateInstance } from "../services/api/apiInstance";
 import { USERS_URLS } from "../services/api/apiConfig";
 import { ILoginData, IUser } from "../modules/Shared/interfaces/AuthInterface";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { NavigateFunction} from "react-router-dom";
 // import { USERS_URLS } from "../Services/Urls";
 // import { privateAxiosInstance } from "../Services/Axiosinstanc";
 // import { ILoginData, IUser } from "../Modules/Shared/Interfaces/AuthInterface";

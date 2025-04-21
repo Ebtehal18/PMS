@@ -2,8 +2,14 @@ import { Button, Modal } from "react-bootstrap";
 import Loading from "../Loading/Loading";
 import { imgURL } from "../../../services/api/apiInstance";
 import noimg from '../../../assets/no-user.jpg'
+import { IUsers } from "../interfaces/UserInterface";
 
-export default function ViewDetails({show,handleClose,user,loading}) {
+export default function ViewDetails({show,handleClose,user,loading}:{
+  show:boolean,
+  handleClose:()=>void,
+  user:IUsers,
+  loading:boolean
+}) {
 
  
 
