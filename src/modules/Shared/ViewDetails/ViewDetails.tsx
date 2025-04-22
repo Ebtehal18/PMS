@@ -1,5 +1,4 @@
 import { Button, Modal } from "react-bootstrap";
-import Loading from "../Loading/Loading";
 import { imgURL } from "../../../services/api/apiInstance";
 import noimg from '../../../assets/no-user.jpg'
 import { IUsers } from "../interfaces/UserInterface";

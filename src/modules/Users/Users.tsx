@@ -5,7 +5,7 @@ import { USERS_URLS } from "../../services/api/apiConfig";
 import Table from 'react-bootstrap/Table';
 import { IUsers } from "../Shared/interfaces/UserInterface";
 import { FormateDate } from "../../helpers/formateDate";
-import {  InputGroup,Form,  Accordion, Dropdown } from "react-bootstrap";
+import {  InputGroup,Form,  Accordion} from "react-bootstrap";
 import ViewDetails from "../Shared/ViewDetails/ViewDetails";
 import { toast } from "react-toastify";
 import Loading from "../Shared/Loading/Loading";
