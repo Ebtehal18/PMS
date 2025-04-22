@@ -3,7 +3,7 @@
 
 ## ✨ Live Demo & GitHub
 
-- 🔗 **Live Demo:** [Click here](https://pms-ne7q.vercel.app/)
+- 🔗 **Live Demo:** [Click here](https://pms-crs1-ebtehals-projects.vercel.app/)
 -
 
 ---
