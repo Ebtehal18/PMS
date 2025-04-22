@@ -18,8 +18,7 @@ import Header from "../../Shared/Header/Header";
 
 export default function ProjectList() {
   const [projects,setProjects]=useState<ProjectInterface[]>([])
-  // const [search,setSearch]=useState('userName')
-  // const inputRef=useRef<HTMLInputElement>(null)
+
 
   const [currentPage,setCurrentPage]=useState(1)
 
@@ -30,6 +29,7 @@ export default function ProjectList() {
  
   const [selectedProject,setSelectedProject]=useState<number|null>(null)
 
+
  //delete modal
   const [showDelation, setShowDelation] = useState(false);
   const handleCloseDelete = ():void => setShowDelation(false);
@@ -39,7 +39,6 @@ export default function ProjectList() {
     setShowDelation(true)
   };
 
-// const {projects,getAllProjects,totalPages,totalrecords,setProjects} =useContext(ProjectAndUserContext)
 const {loginData}=useContext(AuthContext)
   // get all projects
   const getAllProjectsList=async(pageSize:number,pageNumber:number,title?:string)=>{
@@ -135,7 +134,7 @@ return <>
           <th>Num Tasks</th>
           <th>Description   </th>
           <th>Date Created</th>
-          <th>Actions</th>
+        {loginData?.userGroup==='Manager'&&          <th>Actions</th>        }
         </tr>
       </thead>
       <tbody>
@@ -144,7 +143,8 @@ return <>
           <td className="align-middle text-center">{project.task.length}</td>
           <td className="align-middle text-center">{project.description}</td>
           <td className="align-middle text-center">{FormateDate(project.creationDate)}</td>
-          <td className="text-center align-middle"> <Actions   handleProjectDelete={handleShowDelete} projectId={project.id}/></td>
+          {  loginData?.userGroup==='Manager'&&         <td className="text-center align-middle"> <Actions   handleProjectDelete={handleShowDelete} projectId={project.id}/></td>
+        }
         </tr>)
 :<td colSpan={6} className="text-center"><NoData/></td>
 }
@@ -179,11 +179,12 @@ return <>
        <div>   <p><strong>Num Tasks:</strong> {project.task.length}</p>
             <p><strong>Description:</strong> {project.description}</p>
             <p><strong>Date Created:</strong> {FormateDate(project.creationDate)}</p></div>
-            <Actions 
-                // handleShowEdit={handleShowEdit} 
-                handleProjectDelete={handleShowDelete} 
-                projectId={project.id} 
-              />
+            {loginData?.userGroup==='Manager'&&  <Actions 
+          
+          handleProjectDelete={handleShowDelete} 
+          projectId={project.id} 
+        />}
+           
           </div>
           </Accordion.Body>
         </Accordion.Item>

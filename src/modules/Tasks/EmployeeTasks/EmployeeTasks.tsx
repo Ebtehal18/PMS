@@ -73,6 +73,8 @@ const TaskCol=({title,tasks,getAssignedTasks,setTasks}:
   layoutId={title}
   key={title}
    className="rounded-4 task-employee p-3"
+
+   
    onDrop={async(e)=>{
     e.preventDefault()
     // next status that title is next status
