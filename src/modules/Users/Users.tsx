@@ -5,7 +5,7 @@ import { USERS_URLS } from "../../services/api/apiConfig";
 import Table from 'react-bootstrap/Table';
 import { IUsers } from "../Shared/interfaces/UserInterface";
 import { FormateDate } from "../../helpers/formateDate";
-import {  InputGroup,Form,  Accordion } from "react-bootstrap";
+import {  InputGroup,Form,  Accordion, Dropdown } from "react-bootstrap";
 import ViewDetails from "../Shared/ViewDetails/ViewDetails";
 import { toast } from "react-toastify";
 import Loading from "../Shared/Loading/Loading";
@@ -33,26 +33,31 @@ export default function Users() {
 
 
   const [loading,setLoading]=useState(false)
-  const [loadingUser,setLoadingUser]=useState(false)
+  // const [loadingUser,setLoadingUser]=useState(false)
   const [loadingToggleUser,setLoadingToggleUser]=useState(false)
-  const [selectedUser,setSelectedUser]=useState<{id:number,isActivated:boolean}|null>(null)
+  const [selectedUser,setSelectedUser]=useState<IUsers|null>(null)
 
-
-  // const [selectedUser,setSelectedUser]=useState<null|number>(null)
-  const [user,setUser]=useState(null)
-  const [show, setShow] = useState(false);
-  const handleClose = ():void => setShow(false);
-
-  const handleShow = (id:number):void =>{
-    getUser(id)
-    setShow(true)
+// view modal
+  const [showView, setShowView] = useState(false);
+  const handleCloseView = ():void => {
+    setShowView(false)
+    setSelectedUser(null)
   };
 
-
-  const [showDelation, setShowDelation] = useState(false);
-  const handleCloseDelete = ():void => setShowDelation(false);
-  const handleShowDelete = (user:{id:number,isActivated:boolean}):void =>{
+  const handleShowView = (user:IUsers):void =>{
     console.log(user)
+    setSelectedUser(user)
+    setShowView(true)
+  };
+
+// delete modal
+  const [showDelation, setShowDelation] = useState(false);
+  const handleCloseDelete = ():void => {
+    setShowDelation(false);
+    setSelectedUser(null)
+  }
+  const handleShowDeleteUser = (user:IUsers):void =>{
+    // console.log(user)
     setSelectedUser(user)
     setShowDelation(true)
   };
@@ -67,7 +72,7 @@ export default function Users() {
         handleCloseDelete()
         getAllUsersList()
         console.log(data)
-        // toast.success(selectedUser.isActivated?"You have blocked this user successfully!":"You have activated this user successfully!")
+        toast.success(selectedUser.isActivated?"You have blocked this user successfully!":"You have activated this user successfully!")
       }
    
     } catch (error) {
@@ -80,19 +85,19 @@ export default function Users() {
     }
   }
   // get single user
-  const getUser=async(id:number)=>{
-    setLoadingUser(true)
-    try {
-      const {data}=await axiosPrivateInstance.get(USERS_URLS.GET_USER(id))
-      setUser(data)
-      console.log(data)
+  // const getUser=async(id:number)=>{
+  //   setLoadingUser(true)
+  //   try {
+  //     const {data}=await axiosPrivateInstance.get(USERS_URLS.GET_USER(id))
+  //     setUser(data)
+  //     console.log(data)
    
-    } catch (error) {
-      console.log(error)
-    }finally{
-      setLoadingUser(false)
-    }
-  }
+  //   } catch (error) {
+  //     console.log(error)
+  //   }finally{
+  //     setLoadingUser(false)
+  //   }
+  // }
 
  const getAllUsersList=async()=>{
     setLoading(true)
@@ -210,8 +215,8 @@ console.log(value)
           <td className="align-middle text-center">{user.email}</td>
           <td className="align-middle text-center">{FormateDate(user.creationDate)}</td>
           <td className="text-center align-middle">
-            <Actions  handleShowDeleteUser={handleShowDelete} user={user} handleUserDelete={toggleUser} handleShow={handleShow}/>
- 
+      <Actions isActivated={user?.isActivated}  handleShowDeleteUser={handleShowDeleteUser} user={user} handleUserDelete={toggleUser} handleShowView={handleShowView}/>
+
           </td>
         </tr>)
 :<td colSpan={6} className="text-center"><NoData/></td>
@@ -243,7 +248,7 @@ console.log(value)
           <p><strong>Email:</strong> {user.email}</p>
           <p><strong>Date Created:</strong> {FormateDate(user.creationDate)}</p>
 </div>
-<Actions  handleShowDeleteUser={handleShowDelete} user={user} handleUserDelete={toggleUser} handleShow={handleShow}/>
+<Actions isActivated={user?.isActivated}  handleShowDeleteUser={handleShowDeleteUser} user={user} handleUserDelete={toggleUser} handleShowView={handleShowView}/>
 
           </div>
      
@@ -261,7 +266,7 @@ console.log(value)
 
 {users.length>0? <PaginationPage currentPage={currentPage} setCurrentPage={setCurrentPage} getFun={getAllUsersList} totalPages={totalPages} totalrecords={totalrecords}/>
 :""}
-{user&&  <ViewDetails show={show} handleClose={handleClose} user={user} loading={loadingUser}/>
+{selectedUser&&  <ViewDetails show={showView} handleClose={handleCloseView} user={selectedUser} />
 }
   <ActivateAndDeactivate isActivated={selectedUser?.isActivated??false}    show={showDelation} handleClose={handleCloseDelete}  deleteFun={toggleUser} loading={loadingToggleUser} />
   </>

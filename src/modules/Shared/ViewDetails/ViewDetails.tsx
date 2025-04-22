@@ -4,11 +4,11 @@ import { imgURL } from "../../../services/api/apiInstance";
 import noimg from '../../../assets/no-user.jpg'
 import { IUsers } from "../interfaces/UserInterface";
 
-export default function ViewDetails({show,handleClose,user,loading}:{
+export default function ViewDetails({show,handleClose,user}:{
   show:boolean,
   handleClose:()=>void,
   user:IUsers,
-  loading:boolean
+ 
 }) {
 
  
@@ -18,7 +18,7 @@ export default function ViewDetails({show,handleClose,user,loading}:{
 
   </Modal.Header>
   <Modal.Body>
-    {loading?<Loading/>:
+    {
     <>
 <div className="text-center">
 <img src={user?.imagePath?`${imgURL}/${user?.imagePath}`:noimg} alt="user"  className="rounded-full " width={200}/>

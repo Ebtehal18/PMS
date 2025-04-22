@@ -3,12 +3,25 @@ import { Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { IUsers } from "../interfaces/UserInterface";
 
-export default function Actions({user,handleShow,handleProjectDelete,handleShowDeleteUser,projectId,isActivated,taskId,handleShowDeleteTaskist}:{
+
+export default function Actions({
+  // user
+  user,
+  handleShowDeleteUser,
+  handleShowView,
+  isActivated,
+// project
+  handleProjectDelete,
+  projectId,
+// task
+  taskId,
+  handleShowDeleteTaskist,
+}:{
     user?:IUsers,
     projectId?:number,
-    handleShow?:(id:number)=>void,
+    handleShowView?:(user:IUsers)=>void,
 
-    handleShowDeleteUser?:(user:{id:number,isActivated:boolean})=>void;
+    handleShowDeleteUser?:(user:IUsers)=>void;
     taskId?:number,
     handleShowDeleteTaskist?:(id:number)=>void,
 
@@ -16,8 +29,7 @@ export default function Actions({user,handleShow,handleProjectDelete,handleShowD
     handleProjectDelete?: (id: number) => void;
     isActivated?:boolean
 }) {
- 
-    
+
   return <><Dropdown >
   <Dropdown.Toggle id="dropdown-basic" variant="link" className="text-decoration-none">
   <i className="fa-solid fa-ellipsis-vertical text-black "></i>
@@ -25,9 +37,9 @@ export default function Actions({user,handleShow,handleProjectDelete,handleShowD
   </Dropdown.Toggle>
 
   <Dropdown.Menu>
-   {user &&handleShowDeleteUser &&handleShow&&  <>
-    <Dropdown.Item onClick={()=>handleShow(user.id)}><i className="mx-2 text-success fa-regular fa-eye"></i> view</Dropdown.Item>
-    <Dropdown.Item onClick={()=>handleShowDeleteUser({id:user.id,isActivated:user.isActivated})}> <i className={`mx-2 fa-solid ${isActivated ? 'fa-ban text-danger' : 'fa-user text-success'}`}></i>
+   {user &&handleShowDeleteUser &&handleShowView&&  <>
+    <Dropdown.Item onClick={()=>handleShowView(user)}><i className="mx-2 text-success fa-regular fa-eye"></i> view</Dropdown.Item>
+    <Dropdown.Item onClick={()=>handleShowDeleteUser(user)}> <i className={`mx-2 fa-solid ${isActivated ? 'fa-ban text-danger' : 'fa-user text-success'}`}></i>
     {isActivated?'block':'activate'}
     </Dropdown.Item>
    </>}
