@@ -1,54 +1,52 @@
-# React + TypeScript + Vite
+# 🚀 Project Management System (PMS)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## ✨ Live Demo & GitHub
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔗 **Live Demo:** [Click here](https://pms-ne7q.vercel.app/)
+-
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Technologies & Libraries Used
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- ✅ **Vite**
+- ✅ **React**
+- ✅ **TypeScript**
+- ✅ **Axios**
+- ✅ **Bootstrap**
+- ✅ **FontAwesome**
+- ✅ **react-router-dom**
+- ✅ **react-hook-form**
+- ✅ **react-toastify**
+- ✅ **react-pro-sidebar**
+- ✅ **react-donut-chart**
+- ✅ **react-beautiful-dnd**
+- ✅ **jwt-decode**
+- ✅ **vercel** (Deployment)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📊 Business Features
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- ✅ **Authentication System**: Secure login and token-based access.
+- ✅ **User Roles**: Differentiated access for managers and employees.
+- ✅ **User Management (CRUD)**: Create, Read, Update, and Delete users.
+- ✅ **Dashboard with Charts**: Visual insights using donut charts.
+- ✅ **Project Management (CRUD)**: Full control over project lifecycle.
+- ✅ **Task Management (CRUD)**: Assign, track, and organize tasks.
+- ✅ **Drag & Drop Interface**: Intuitive task reordering via drag-and-drop.
+- ✅ **Dark/Light Mode Toggle**: Personalized theme options.
+- ✅ **Shared Module & Context API**: Better code reusability and state management.
+- ✅ **Forms with Validation**: Clean user experience with form validation.
+- ✅ **Axios for API**: Smooth communication with the backend.
+- ✅ **Master Layout**: Unified structure for Authenticated/Guest users.
+
+
+
+
+
+
+---
+
+Thank you for checking out our project! 🌟
