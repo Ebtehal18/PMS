@@ -24,7 +24,6 @@ export default function TasksData() {
 
 const {register,handleSubmit,formState:{errors,isSubmitting},setValue}=useForm<ITasksData>()
 
-// const {getAllProjects,projects,users,getAllUsers}=useContext(ProjectAndUserContext)
 
 const onSubmit=async(values:ITasksData)=>{
   console.log(values)
@@ -100,7 +99,7 @@ useEffect(()=>{
   <Container>
     <Row className="justify-content-center d-flex mt-5">
       <Col md={8}>
-      <div className="project-data p-5 d-flex flex-column">
+      <div className="project-data p-md-5 p-3 d-flex flex-column">
       {loadingEdit?<Loading/>:<form onSubmit={handleSubmit(onSubmit)}>
 <Form.Group>
           <Form.Label htmlFor="title" className="main-color">Title</Form.Label>
